@@ -4,7 +4,7 @@ class WeatherResults extends Component {
   render() {
     return (
       <div>
-        <h1>Inside Weather Results!</h1>
+        <h1>The current weather in {this.props.currentCity} is {this.props.currentTemp}</h1>
       </div>
     );
   }
