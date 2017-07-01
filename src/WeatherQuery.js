@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './css/weather-icons.min.css';
+import './css/weather-icons-wind.min.css';
 
 class WeatherQuery extends Component {
   constructor(props){
@@ -27,6 +29,9 @@ class WeatherQuery extends Component {
         <p>Enter a city or zip code!</p>
         <form onSubmit = {this.handleSubmit}>
           <input type='text' value={this.state.value} onChange={this.handleChange} placeholder='Enter city'></input>
+          <br/>
+          <br/>
+          <input type='submit' value='Go!' className='button'></input>
         </form>
       </div>
     );
