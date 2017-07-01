@@ -23,7 +23,8 @@ class WeatherQuery extends Component {
 
   render() {
     return (
-      <div>
+      <div className='weatherQuery'>
+        <p>Enter a city or zip code!</p>
         <form onSubmit = {this.handleSubmit}>
           <input type='text' value={this.state.value} onChange={this.handleChange} placeholder='Enter city'></input>
         </form>

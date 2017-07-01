@@ -19,7 +19,6 @@ class App extends Component {
     let url = `https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="${city}")&format=json`;
     axios.get(url)
       .then((response) => {
-        console.log(response);
         let currentTemp = response.data.query.results.channel.item.condition.temp;
         let currentCity = response.data.query.results.channel.location.city;
         this.setState({
@@ -28,15 +27,20 @@ class App extends Component {
         });
       })
       .catch((error) => {
-        console.log('error!');
+        console.log('error getting city weather!');
       });
   }
 
   render() {
     return (
-      <div>
-        <WeatherQuery handleCityQuery = {this.handleCityQuery}/>
-        {this.state.currentCity ? <WeatherResults currentTemp = {this.state.currentTemp} currentCity = {this.state.currentCity}/> : ''}
+      <div className='weatherModal'>
+        <div className='title'>
+          Another weather app
+        </div>
+        <div className='content'>
+          <WeatherQuery handleCityQuery = {this.handleCityQuery}/>
+          {this.state.currentCity ? <WeatherResults currentTemp = {this.state.currentTemp} currentCity = {this.state.currentCity}/> : ''}
+        </div>
       </div>
     );
   }
